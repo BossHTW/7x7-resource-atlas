@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="A youth-led guide to finding support in San Francisco. Explore resources, suggest corrections, and share your story with 7x7 Stories.">
+  <meta name="theme-color" content="#192943">
+  <title>7x7 Stories · Find your people. Find support.</title>
+  <link rel="icon" href="assets/favicon.png">
+  <link rel="stylesheet" href="assets/leaflet/leaflet.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="assets/leaflet/leaflet.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#resources">Skip to resources</a>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="7x7 Stories home"><img src="assets/mark.svg" alt="" width="42" height="42"><span>7x7 <b>Stories</b><small>SAN FRANCISCO · YOUTH RESOURCE GUIDE</small></span></a>
+    <nav aria-label="Main navigation"><a href="#resources">Find support</a><a href="#stories">Our stories</a><a href="#about">About this guide</a></nav>
+  </header>
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy"><p class="eyebrow">FOR YOUNG PEOPLE, BY YOUNG PEOPLE</p><h1 id="hero-title">Find your people.<br>Find support.</h1><p>Food, a place to land, someone to talk to, or care for your pet. Start with what you need.</p><a class="button light" href="#resources">Explore resources</a></div>
+      <div class="hero-note"><div class="tile-mark" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div><p>A city of resources.<br>A place for your story.</p><span>7 miles × 7 miles. Many ways to belong.</span></div>
+    </section>
+    <div class="guide-note"><strong>Details change. Your experience matters.</strong><span>Website research checked November 24, 2026. Not yet confirmed directly with providers.</span><a href="#feedback" data-feedback="general">Suggest a correction</a></div>
+    <section id="resources" class="resources section" aria-labelledby="resource-heading">
+      <div class="section-heading"><div><p class="eyebrow">START HERE</p><h2 id="resource-heading">What would help today?</h2></div><div class="view-options"><button id="map-toggle" class="button secondary" aria-expanded="false" aria-controls="map-panel">Show map</button></div></div>
+      <form id="filters" class="filters" role="search" aria-label="Search resources">
+        <div class="search-wrap"><label for="search">Search resources</label><input id="search" name="search" type="search" placeholder="Try laundry, housing, LGBTQ+, pet care…" autocomplete="off"></div>
+        <div><label for="age">Age range</label><select id="age" name="age"><option value="all">Any age</option><option value="under18">Under 18</option><option value="18to24">18–24</option><option value="25plus">25 and older</option></select></div>
+        <div><label for="area">Neighborhood</label><select id="area" name="area"><option value="all">Anywhere in SF</option></select></div>
+      </form>
+      <fieldset class="category-filter"><legend class="visually-hidden">Filter by type of support</legend><div id="categories"></div></fieldset>
+      <div class="results-bar"><p id="result-count" role="status" aria-live="polite">Loading resources…</p><button id="clear-filters" type="button" class="text-button" hidden>Clear filters</button></div>
+      <p id="age-note" class="small-note" hidden>Listings without a published age limit remain visible. Check the eligibility details before going.</p>
+      <div class="directory-layout" id="directory-layout">
+        <div id="resource-list" class="resource-list"><noscript><p>This directory needs JavaScript to load its filters. <a href="data/resources.json">Download the sourced resource list</a>, or email <a href="mailto:7x7storiessf@gmail.com">7x7storiessf@gmail.com</a> for help with the guide.</p></noscript></div>
+        <aside id="map-panel" class="map-panel" hidden aria-labelledby="map-heading"><div class="map-header"><h3 id="map-heading">Around San Francisco</h3><p id="map-summary"></p></div><p class="map-privacy">Map pins are approximate address locations, not entrances. Opening the map loads OpenStreetMap tiles; we do not request your location.</p><div id="map" aria-label="Resource locations; the complete information is also in the resource list" tabindex="0"></div><p id="map-status" role="status" class="small-note"></p><a class="text-link" href="#resource-heading">Use the text directory</a></aside>
+      </div>
+      <p class="directory-footnote">Hours are not live availability. “Website checked” means we reviewed the linked page, not that a provider confirmed access or space. Holiday schedules may differ. Where a cost or access detail is unclear, we say so.</p>
+    </section>
+    <section id="stories" class="stories section" aria-labelledby="stories-heading">
+      <div class="story-art" aria-hidden="true"><div class="paper one">7x7<br><span>STORIES</span></div><div class="paper two"><span>YOUR CITY.<br>YOUR WORDS.</span></div></div>
+      <div class="story-copy"><p class="eyebrow">THE FIRST ISSUE IS STILL TO COME</p><h2 id="stories-heading">There’s a place<br>for your story here.</h2><p>We haven’t published any youth stories yet. We’re inviting SF youth to help shape our first digital zine.</p><p>Share writing, art, a voice note, or an idea about a place or community that’s helped you. You choose what to share, how you’re named, and whether your story connects to a location.</p><div class="button-row"><button class="button primary" data-nominate="self">Nominate yourself</button><button class="button secondary" data-nominate="other">Nominate someone you know</button></div><p class="small-note">We’ll follow up by email. A nomination is not consent to publish. You can use this guide without sharing a story.</p></div>
+    </section>
+    <section id="feedback" class="feedback section" aria-labelledby="feedback-heading"><div><p class="eyebrow">HELP KEEP THIS USEFUL</p><h2 id="feedback-heading">Something changed?</h2><p>A different age limit? New hours? A referral you weren’t told about? Tell us what you found so the next person has better information.</p></div><div class="feedback-action"><button class="button primary" data-feedback="general">Suggest a correction</button><p>Suggestions go privately to the 7x7 team for review. They are not posted automatically.</p></div></section>
+    <section id="about" class="about section" aria-labelledby="about-heading"><div><p class="eyebrow">ABOUT THIS GUIDE</p><h2 id="about-heading">Built with youth.<br>Kept honest together.</h2></div><div><p>7x7 Stories is a youth-led San Francisco project connecting practical resources with young people’s own words and artwork.</p><details><summary>How we check information</summary><p>Each listing links to the sources we used and shows when we last checked them. We prioritize provider websites. When pages conflict or leave a detail out, we flag it rather than guess. These first listings are based on online research, not phone or in-person verification.</p><p>To report a change, include the resource, what was different, and when you noticed it. We’ll review the suggestion and seek confirmation before editing the listing. Providers can use the same correction route.</p></details><details><summary>Accessibility and privacy</summary><p>The text directory contains the same resource details as the map. Please tell us if anything is hard to use. We do not collect device location, require accounts, or run advertising analytics.</p><p>Correction and nomination forms prepare an email in your own email app; nothing is submitted until you send it. Do not include medical records, immigration documents, a home address, or another person’s private details. The map uses OpenStreetMap; the website is hosted on GitHub Pages. Those services may receive ordinary connection data such as your IP address.</p></details><details><summary>What this guide can and cannot do</summary><p>We’re a directory and storytelling project, not a service provider. We cannot reserve beds, confirm real-time availability, or determine your eligibility. Contact a provider directly for support. The 7x7 inbox is for stories and guide corrections and is not monitored for urgent help.</p></details><a class="text-link" href="mailto:7x7storiessf@gmail.com">Contact 7x7 Stories</a></div></section>
+  </main>
+  <footer><a class="brand footer-brand" href="#top"><img src="assets/mark.svg" width="34" height="34" alt=""><span>7x7 <b>Stories</b></span></a><p>San Francisco. A little more connected.</p><a href="data/resources.json" download>Download resource data</a></footer>
+  <dialog id="contact-dialog" aria-labelledby="dialog-title"><div class="dialog-top"><p class="eyebrow" id="dialog-eyebrow"></p><button id="close-dialog" aria-label="Close dialog" class="close-button">×</button></div><h2 id="dialog-title"></h2><p id="dialog-intro"></p><form id="contact-form"><div id="dialog-fields"></div><p class="small-note">This opens a draft in your email app. Nothing is sent or published automatically. No email app? Copy the message and send it to <strong>7x7storiessf@gmail.com</strong>.</p><div class="button-row"><button class="button primary" type="submit">Open email draft</button><button class="button secondary" type="button" id="copy-message">Copy email text</button></div><p id="email-status" role="status" aria-live="polite"></p><div id="manual-message" hidden><label for="prepared-message">Your prepared message</label><textarea id="prepared-message" rows="8" readonly></textarea></div></form></dialog>
+</body>
+</html>
