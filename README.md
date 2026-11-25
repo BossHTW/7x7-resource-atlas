@@ -37,3 +37,5 @@ Provider verification: confirm the sender’s affiliation through an official pr
 Brand mark reused from Boss's existing 7x7 Stories site. Leaflet 1.9.4 is distributed under its included BSD-2-Clause license. Map attribution must remain visible.
 
 Provider logo source URLs are recorded in `assets/providers/sources.json` and each relevant resource record. Logos remain the property of their organizations. Keep all form submissions and verification correspondence out of the public repository.
+
+When changing JavaScript, CSS, or resource data, refresh their content-version query strings (`index.html` and the data fetch in `app.js`) to avoid mixed cached versions after a Pages deploy.

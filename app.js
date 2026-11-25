@@ -249,7 +249,7 @@ async function init() {
     filterResources(); $('#search').focus();
   });
   try {
-    const response = await fetch('data/resources.json'); if (!response.ok) throw new Error('Resource data unavailable');
+    const response = await fetch('data/resources.json?v=54e577134ce5'); if (!response.ok) throw new Error('Resource data unavailable');
     resources = await response.json();
     $('#categories').innerHTML = CATEGORY_NAMES.map(name => `<button type="button" class="chip" data-category="${escapeHTML(name)}" aria-pressed="${name === selectedCategory}">${escapeHTML(name)}</button>`).join('');
     $('#categories').addEventListener('click',event => {
