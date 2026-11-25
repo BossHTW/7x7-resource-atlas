@@ -252,7 +252,10 @@ function setupContact() {
       $('#map').scrollIntoView({block:'center',behavior:'auto'}); $('#map').focus({preventScroll:true});
     }
     if (feedback) { event.preventDefault(); openContact('correction',resources.find(r => r.id === feedback.dataset.feedback) || null,feedback); }
-    if (nominate) openContact(nominate.dataset.nominate,null,nominate);
+    if (nominate) {
+      openContact(nominate.dataset.nominate,null,nominate);
+      if (nominate.dataset.storyApproach === 'proposal') { $('#story-approach').value = 'proposal'; syncStoryApproach(); $('#story-pitch').focus(); }
+    }
   });
   $('#close-dialog').addEventListener('click',() => $('#contact-dialog').close());
   $('#contact-dialog').addEventListener('close',() => returnFocus?.focus());
@@ -302,6 +305,11 @@ async function init() {
     [...new Set(resources.map(r => r.area))].sort().forEach(area => { const option = document.createElement('option'); option.value = area; option.textContent = area; $('#area').append(option); });
     filterResources();
     setView('map');
+    const nomination = new URLSearchParams(window.location.search).get('nominate');
+    if (nomination === 'self' || nomination === 'other') {
+      openContact(nomination,null,document.querySelector(`[data-nominate="${nomination}"]`));
+      const url = new URL(window.location.href); url.searchParams.delete('nominate'); history.replaceState(null,'',url);
+    }
   } catch {
     setView('list');
     $('#result-count').textContent = 'The resource list could not load.';

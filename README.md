@@ -12,7 +12,7 @@ Run `python3 -m http.server 8000` in this directory and open `http://localhost:8
 - Keep factual service details brief and in your own words. Preserve sources, uncertainty notes, age conditions, and `checked` dates. Updating code does not refresh the research date.
 - `coordinates` come from the US Census address geocoder and are approximate. `map: false` intentionally excludes outreach, private residential, referral-only, and rotating locations from map pins. Do not geocode administrative offices as service sites.
 - Never commit releases, personal contact details, raw interviews, medical information, or nomination/correction emails.
-- There are no published stories yet. The invitation is intentionally honest; do not invent youth testimonials.
+- Boss Huang’s approved third-person profile is published at `stories/boss-huang/`. Three invitation cards are open calls for future contributors; do not invent youth testimonials. Keep unpublished drafts, editorial notes, and more sensitive source material outside this public repository.
 
 ## Corrections and nominations
 
@@ -41,3 +41,5 @@ Provider logo source URLs are recorded in `assets/providers/sources.json` and ea
 When changing JavaScript, CSS, or resource data, refresh their content-version query strings (`index.html` and the data fetch in `app.js`) to avoid mixed cached versions after a Pages deploy.
 
 Self-nominations offer a guided profile outline or a separate creative proposal. Inactive fields are disabled and excluded from the draft. Nominations for others ask for a nickname, a short reason, permission, and an optional alternative idea. All forms prepare email locally; no nomination is saved to the website. Long drafts use the copy fallback rather than risking a truncated mailto link.
+
+Appearance: `theme.js` follows the device theme until a visitor chooses Dark mode. The choice is stored locally under `7x7-appearance` and shared by the map and story page. `theme.css` supplies both palettes. Story photos are in `assets/stories/boss/`; the published page uses only the approved public profile and selected photos.
