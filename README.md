@@ -43,3 +43,5 @@ When changing JavaScript, CSS, or resource data, refresh their content-version q
 Self-nominations offer a guided profile outline or a separate creative proposal. Inactive fields are disabled and excluded from the draft. Nominations for others ask for a nickname, a short reason, permission, and an optional alternative idea. All forms prepare email locally; no nomination is saved to the website. Long drafts use the copy fallback rather than risking a truncated mailto link.
 
 Appearance: `theme.js` follows the device theme until a visitor chooses Dark mode. The choice is stored locally under `7x7-appearance` and shared by the map and story page. `theme.css` supplies both palettes. Story photos are in `assets/stories/boss/`; the published page uses only the approved public profile and selected photos.
+
+Story collection: small square tiles use the logo colors (amber #EF9F27, blue #378ADD, pink #D4537E, purple #7F77DD, green #1D9E75). Add approved stories as tiles; the grid fits roughly 3–5 per row on larger screens and two on phones. Keep the three nomination invitations clearly distinct from published profiles.
