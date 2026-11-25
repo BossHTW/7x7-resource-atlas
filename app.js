@@ -142,13 +142,22 @@ function setView(view) {
 function formField(id,label,type='text',extra='') {
   return `<div><label for="${id}">${label}</label><input id="${id}" name="${id}" type="${type}" ${extra}></div>`;
 }
+function storyQuestion(id, label, placeholder, required = false, max = 700) {
+  return `<div><label for="${id}">${label} ${required ? '<span>(required)</span>' : '<span>(optional)</span>'}</label><textarea id="${id}" name="${id}" ${required ? 'required' : ''} maxlength="${max}" placeholder="${placeholder}"></textarea></div>`;
+}
+function syncStoryApproach() {
+  if (!$('#story-approach')) return;
+  const proposal = $('#story-approach').value === 'proposal';
+  $('#story-outline').hidden = proposal; $('#story-outline').disabled = proposal;
+  $('#story-proposal').hidden = !proposal; $('#story-proposal').disabled = !proposal;
+}
 function openContact(mode, resource, origin) {
   contactMode = mode; contactResource = resource; returnFocus = origin;
   const correction = mode === 'correction';
   $('#dialog-eyebrow').textContent = correction ? 'HELP KEEP THE GUIDE CURRENT' : '7x7 STORIES · FIRST ISSUE';
   $('#dialog-title').textContent = correction ? (resource ? 'Suggest a correction' : 'Share an update or resource') : (mode === 'self' ? 'Tell us a little about your story' : 'Nominate someone you know');
   $('#dialog-intro').textContent = correction ? 'Tell us what changed. A date or a public source helps us check it. Please leave out private records and other people’s identifying details.' :
-    mode === 'self' ? 'An idea is enough to start. No finished story needed. Our team will reply to talk about what you’d like to share and your choices before publication.' :
+    mode === 'self' ? 'A few sentences are enough. Use our prompts or propose another idea—writing, art, photos, audio, or something else. Share only what you’re comfortable emailing. We’ll shape the story with you before publication.' :
     'Ask their permission first, or invite them to email us themselves. Please don’t share their contact details or personal experiences without permission.';
   if (mode === 'addition') {
     $('#dialog-eyebrow').textContent = 'HELP THE MAP GROW';
@@ -165,10 +174,29 @@ function openContact(mode, resource, origin) {
       <div><label for="update-type">What needs updating?</label><select id="update-type" name="update-type"><option>Eligibility / age requirements</option><option>Hours / availability</option><option>Address / contact details</option><option>Cost / documents / referral</option><option>Accessibility / language access</option><option>Suggest a new resource</option><option>Something else</option></select></div>
       <div><label for="message">What did you find? <span>(required)</span></label><textarea id="message" name="message" required maxlength="2500" placeholder="For example: the age limit at this program was different from the listing."></textarea></div>
       ${formField('observed','When did you notice this? (optional)','date')}${formField('source','Public source link (optional)','url','placeholder="https://…" maxlength="500"')}`;
+  } else if (mode === 'self') {
+    $('#dialog-fields').innerHTML = `${formField('preferred-name','Name or nickname (required)','text','required maxlength="100" autocomplete="nickname"')}<p class="field-hint">Use a nickname or “Anonymous” if you prefer.</p>
+      ${formField('pronouns','Pronouns (optional)','text','maxlength="60"')}
+      <div><label for="story-approach">How would you like to start?</label><select id="story-approach" name="story-approach"><option value="outline">Use the story outline</option><option value="proposal">Propose something else</option></select></div>
+      <fieldset id="story-outline" class="story-fieldset"><legend class="visually-hidden">Story outline</legend>
+        ${storyQuestion('story-about','Tell us a little about yourself','Your interests, hobbies, communities, or what you enjoy doing.',true,500)}
+        ${storyQuestion('story-thread','What would you like your story to explore?','Something you care about, an experience, something you’re making, or a contribution you’d like to share. No hardship story required.',true,900)}
+        ${storyQuestion('story-places','Any people, places, or resources you’d like to include?','Name a public place or resource if you want. Don’t include home addresses or someone else’s private information.',false,500)}
+        ${storyQuestion('story-next','What are you exploring or hoping for next?','An interest, project, question, or next step. It’s okay to still be figuring it out.',false,500)}
+      </fieldset>
+      <fieldset id="story-proposal" class="story-fieldset" hidden disabled><legend class="visually-hidden">Your own idea</legend>
+        ${formField('story-format','Format you have in mind (optional)','text','maxlength="100" placeholder="A photo essay, poem, voice note, comic…"')}
+        ${storyQuestion('story-pitch','What’s your idea?','What would you like to share, and how would you like us to help? An early idea is enough.',true,1800)}
+      </fieldset>
+      ${storyQuestion('story-preferences','Any sharing preferences?','For example: use a nickname, skip photos, don’t name a location, or talk through the format first. No need to explain why.',false,400)}
+      <div><label class="checkbox-label"><input name="permission" type="checkbox" required> I understand the team will follow up before anything is published. This nomination is not permission to publish.</label></div>`;
+    syncStoryApproach();
   } else {
-    $('#dialog-fields').innerHTML = `${formField('preferred-name',mode === 'self' ? 'What should we call you? (optional)' : 'Your name or nickname (optional)','text','maxlength="100"')}
-      <div><label for="message">${mode === 'self' ? 'What would you like to share?' : 'Why would you like to nominate them?'} <span>(required)</span></label><textarea id="message" name="message" required maxlength="2500" placeholder="A place, a community, a piece of art, or a story idea…"></textarea></div>
-      <div><label class="checkbox-label"><input name="permission" type="checkbox" required> ${mode === 'self' ? 'I understand the team will contact me before anything is published.' : 'I have permission to make this nomination and to share the information in this message.'}</label></div>`;
+    $('#dialog-fields').innerHTML = `${formField('preferred-name','Your name or nickname (optional)','text','maxlength="100"')}
+      ${formField('nominee-name','Their name or nickname (required)','text','required maxlength="100"')}
+      ${storyQuestion('nomination-reason','Why would you like to nominate them?','A few sentences about their interests, contribution, or a story they’d like to share. Please leave out private experiences and contact details.',true,1000)}
+      <details class="nomination-extra"><summary>Have another idea or format in mind? (optional)</summary>${storyQuestion('nomination-idea','Your idea','For example: their artwork, a conversation together, or a photo story.',false,500)}</details>
+      <div><label class="checkbox-label"><input name="permission" type="checkbox" required> I have their permission to make this nomination and share the information in this message. This is not permission to publish.</label></div>`;
   }
   $('#email-status').textContent = ''; $('#manual-message').hidden = true;
   $('#contact-dialog').showModal();
@@ -190,14 +218,23 @@ function buildEmail() {
     const name = contactResource ? contactResource.name : data.get('resource-name');
     subject = `[Resource update] ${name}`;
     body = `Resource: ${name}\nTopic: ${data.get('update-type')}\n\n${data.get('message')}\n\nNoticed on: ${data.get('observed') || 'Not specified'}\nPublic source: ${data.get('source') || 'Not supplied'}\n\nListing ID: ${contactResource?.id || 'New / general suggestion'}\nWebsite information checked: ${contactResource?.checked || 'See directory'}\n\nPlease review this suggestion before updating the public guide.`;
+  } else if (contactMode === 'self') {
+    const proposal = data.get('story-approach') === 'proposal';
+    subject = proposal ? '[Story proposal] My idea for 7x7' : '[Story nomination] I’d like to share my story';
+    const intro = `Nomination: Myself\nName / nickname: ${data.get('preferred-name')}\nPronouns: ${data.get('pronouns') || 'Not supplied'}\nApproach: ${proposal ? 'My own idea / format' : 'Guided profile outline'}`;
+    const story = proposal ? `Format: ${data.get('story-format') || 'Let’s discuss'}\n\nMy idea:\n${data.get('story-pitch')}` :
+      `About me:\n${data.get('story-about')}\n\nWhat I’d like my story to explore:\n${data.get('story-thread')}\n\nPeople, places, or resources I’d like to include:\n${data.get('story-places') || 'Not supplied'}\n\nWhat I’m exploring or hoping for next:\n${data.get('story-next') || 'Not supplied'}`;
+    body = `${intro}\n\n${story}\n\nSharing preferences:\n${data.get('story-preferences') || 'Please ask me before deciding what to include.'}\n\nPlease reply to this email to follow up. I’d like to review the wording, quotes, photos, and any location references before publication. This nomination does not grant publication permission.`;
   } else {
-    subject = contactMode === 'self' ? '[Story nomination] I’d like to share a story' : '[Story nomination] Someone I know';
-    body = `Nomination: ${contactMode === 'self' ? 'Myself' : 'Someone I know (with permission)'}\nName / nickname: ${data.get('preferred-name') || 'Not supplied'}\n\n${data.get('message')}\n\nPlease contact me before anything is published. This nomination does not grant publication permission.`;
+    subject = '[Story nomination] Someone I know';
+    body = `Nomination: Someone I know (with permission)\nMy name / nickname: ${data.get('preferred-name') || 'Not supplied'}\nTheir name / nickname: ${data.get('nominee-name')}\n\nWhy I’m nominating them:\n${data.get('nomination-reason')}${data.get('nomination-idea') ? `\n\nAnother idea / format:\n${data.get('nomination-idea')}` : ''}\n\nI have their permission to make this nomination and share this information. Please reply to me about next steps. This nomination does not grant publication permission; please work with the nominee on their own choices before publication.`;
   }
   $('#prepared-message').value = `To: ${TEAM_EMAIL}\nSubject: ${subject}\n\n${body}`;
   return {subject,body};
 }
 function setupContact() {
+  $('#contact-form').addEventListener('change',event => { if (event.target.id === 'story-approach') syncStoryApproach(); });
+  $('#contact-form').addEventListener('input',() => { $('#email-status').textContent = ''; $('#manual-message').hidden = true; });
   document.addEventListener('click', event => {
     const feedback = event.target.closest('[data-feedback]');
     const nominate = event.target.closest('[data-nominate]');
@@ -223,6 +260,10 @@ function setupContact() {
     event.preventDefault(); const message = buildEmail(); if (!message) return;
     const uri = `mailto:${TEAM_EMAIL}?subject=${encodeURIComponent(message.subject)}&body=${encodeURIComponent(message.body)}`;
     $('#manual-message').hidden = false;
+    if (uri.length > 6500) {
+      $('#email-status').textContent = 'Your message is ready below. It’s long enough that an email link may cut it off. Use Copy email text and paste it into an email to 7x7storiessf@gmail.com.';
+      return;
+    }
     $('#email-status').textContent = 'Your email app should open. Review the draft and send it there. Nothing has been submitted by this website.';
     window.location.href = uri;
   });

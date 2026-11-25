@@ -39,3 +39,5 @@ Brand mark reused from Boss's existing 7x7 Stories site. Leaflet 1.9.4 is distri
 Provider logo source URLs are recorded in `assets/providers/sources.json` and each relevant resource record. Logos remain the property of their organizations. Keep all form submissions and verification correspondence out of the public repository.
 
 When changing JavaScript, CSS, or resource data, refresh their content-version query strings (`index.html` and the data fetch in `app.js`) to avoid mixed cached versions after a Pages deploy.
+
+Self-nominations offer a guided profile outline or a separate creative proposal. Inactive fields are disabled and excluded from the draft. Nominations for others ask for a nickname, a short reason, permission, and an optional alternative idea. All forms prepare email locally; no nomination is saved to the website. Long drafts use the copy fallback rather than risking a truncated mailto link.
