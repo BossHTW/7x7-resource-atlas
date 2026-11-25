@@ -37,7 +37,10 @@
       -122.416425815754
     ],
     "geocodeSource": "US Census address geocoder",
-    "matchedAddress": "888 POST ST, SAN FRANCISCO, CA, 94109"
+    "matchedAddress": "888 POST ST, SAN FRANCISCO, CA, 94109",
+    "shortName": "GLIDE",
+    "logo": "assets/providers/glide.svg",
+    "logoSource": "https://www.glide.org/wp-content/uploads/2020/06/glide-logo.svg"
   },
   {
     "id": "larkin-ecc",
@@ -77,7 +80,10 @@
       -122.412661716393
     ],
     "geocodeSource": "US Census address geocoder",
-    "matchedAddress": "134 GOLDEN GATE AVE, SAN FRANCISCO, CA, 94102"
+    "matchedAddress": "134 GOLDEN GATE AVE, SAN FRANCISCO, CA, 94102",
+    "shortName": "LSY",
+    "logo": "assets/providers/larkin.png",
+    "logoSource": "https://larkinstreetyouth.org/wp-content/uploads/2026/02/favicon-1-300x300.png"
   },
   {
     "id": "lyric",
@@ -117,7 +123,8 @@
       -122.435997426218
     ],
     "geocodeSource": "US Census address geocoder",
-    "matchedAddress": "127 COLLINGWOOD ST, SAN FRANCISCO, CA, 94114"
+    "matchedAddress": "127 COLLINGWOOD ST, SAN FRANCISCO, CA, 94114",
+    "shortName": "LYRIC"
   },
   {
     "id": "sfcenter",
@@ -157,7 +164,8 @@
       -122.423767501524
     ],
     "geocodeSource": "US Census address geocoder",
-    "matchedAddress": "1800 MARKET ST, SAN FRANCISCO, CA, 94102"
+    "matchedAddress": "1800 MARKET ST, SAN FRANCISCO, CA, 94102",
+    "shortName": "LGBT"
   },
   {
     "id": "hype",
@@ -205,7 +213,10 @@
       -122.407762981954
     ],
     "geocodeSource": "US Census address geocoder",
-    "matchedAddress": "198 POTRERO AVE, SAN FRANCISCO, CA, 94103"
+    "matchedAddress": "198 POTRERO AVE, SAN FRANCISCO, CA, 94103",
+    "shortName": "HYPE",
+    "logo": "assets/providers/hype.png",
+    "logoSource": "https://images.squarespace-cdn.com/content/v1/5bae87bb11f7846db3002ca6/18829b6c-6f80-461c-9184-647b301320f8/HYPE%2BLogo%2Btransparent.png?format=300w"
   },
   {
     "id": "atc",
@@ -239,7 +250,10 @@
     ],
     "map": false,
     "checked": "2026-11-24",
-    "verification": "Official website checked; not directly confirmed"
+    "verification": "Official website checked; not directly confirmed",
+    "shortName": "ATC",
+    "logo": "assets/providers/atc.png",
+    "logoSource": "https://atthecrossroads.org/wp-content/uploads/2023/10/cropped-ATC-website-Tab-Logo-192x192.png"
   },
   {
     "id": "hh-tenderloin",
@@ -279,7 +293,10 @@
       -122.413883321594
     ],
     "geocodeSource": "US Census address geocoder",
-    "matchedAddress": "146 LEAVENWORTH ST, SAN FRANCISCO, CA, 94102"
+    "matchedAddress": "146 LEAVENWORTH ST, SAN FRANCISCO, CA, 94102",
+    "shortName": "HH",
+    "logo": "assets/providers/hospitality.png",
+    "logoSource": "https://images.squarespace-cdn.com/content/v1/6865e2fa51a03c64b193730d/4a047aaf-3647-42d5-b8a9-b79b6f59a62f/Logo+Full+Size+%282%29.png?format=300w"
   },
   {
     "id": "hh-sixth",
@@ -318,7 +335,10 @@
       -122.407516864487
     ],
     "geocodeSource": "US Census address geocoder",
-    "matchedAddress": "169 6TH ST, SAN FRANCISCO, CA, 94103"
+    "matchedAddress": "169 6TH ST, SAN FRANCISCO, CA, 94103",
+    "shortName": "HH",
+    "logo": "assets/providers/hospitality.png",
+    "logoSource": "https://images.squarespace-cdn.com/content/v1/6865e2fa51a03c64b193730d/4a047aaf-3647-42d5-b8a9-b79b6f59a62f/Logo+Full+Size+%282%29.png?format=300w"
   },
   {
     "id": "mission-dolores",
@@ -357,7 +377,10 @@
       -122.416714332439
     ],
     "geocodeSource": "US Census address geocoder",
-    "matchedAddress": "1050 S VAN NESS AVE, SAN FRANCISCO, CA, 94110"
+    "matchedAddress": "1050 S VAN NESS AVE, SAN FRANCISCO, CA, 94110",
+    "shortName": "MA",
+    "logo": "assets/providers/mission.png",
+    "logoSource": "https://www.missionaction.org/wp-content/uploads/ma_logo_butterfly.png"
   },
   {
     "id": "mission-tay",
@@ -388,7 +411,10 @@
     ],
     "map": false,
     "checked": "2026-11-24",
-    "verification": "Official website checked; not directly confirmed"
+    "verification": "Official website checked; not directly confirmed",
+    "shortName": "MA",
+    "logo": "assets/providers/mission.png",
+    "logoSource": "https://www.missionaction.org/wp-content/uploads/ma_logo_butterfly.png"
   },
   {
     "id": "spca-clinic",
@@ -426,7 +452,8 @@
       -122.4338448671
     ],
     "geocodeSource": "US Census address geocoder",
-    "matchedAddress": "4527 MISSION ST, SAN FRANCISCO, CA, 94112"
+    "matchedAddress": "4527 MISSION ST, SAN FRANCISCO, CA, 94112",
+    "shortName": "SPCA"
   },
   {
     "id": "spca-mobile",
@@ -457,7 +484,8 @@
     ],
     "map": false,
     "checked": "2026-11-24",
-    "verification": "Official website checked; not directly confirmed"
+    "verification": "Official website checked; not directly confirmed",
+    "shortName": "SPCA"
   },
   {
     "id": "huckleberry",
@@ -500,7 +528,8 @@
       -122.442036121868
     ],
     "geocodeSource": "US Census address geocoder",
-    "matchedAddress": "1292 PAGE ST, SAN FRANCISCO, CA, 94117"
+    "matchedAddress": "1292 PAGE ST, SAN FRANCISCO, CA, 94117",
+    "shortName": "HUCK"
   },
   {
     "id": "stanthony",
@@ -538,7 +567,8 @@
       -122.412587513221
     ],
     "geocodeSource": "US Census address geocoder",
-    "matchedAddress": "121 GOLDEN GATE AVE, SAN FRANCISCO, CA, 94102"
+    "matchedAddress": "121 GOLDEN GATE AVE, SAN FRANCISCO, CA, 94102",
+    "shortName": "ST A"
   },
   {
     "id": "hya",
@@ -576,7 +606,10 @@
     ],
     "map": false,
     "checked": "2026-11-24",
-    "verification": "Official website checked; not directly confirmed"
+    "verification": "Official website checked; not directly confirmed",
+    "shortName": "HYA",
+    "logo": "assets/providers/hya.png",
+    "logoSource": "https://www.homelessyouthalliance.org/wp-content/uploads/2020/05/cropped-cropped-cropped-cropped-cropped-cropped-cropped-cropped-HYA-logo1-192x192.png"
   },
   {
     "id": "vetsos",
@@ -611,6 +644,133 @@
     ],
     "map": false,
     "checked": "2026-11-24",
-    "verification": "Official website checked; not directly confirmed"
+    "verification": "Official website checked; not directly confirmed",
+    "shortName": "VET SOS"
+  },
+  {
+    "id": "cyc",
+    "name": "CYC: Community Youth Center",
+    "area": "Tenderloin",
+    "categories": [
+      "Community",
+      "Health",
+      "Work & learning"
+    ],
+    "minAge": null,
+    "maxAge": null,
+    "ageLabel": "Ages vary by program",
+    "summary": "Youth programs, counseling referrals, learning, and community connections.",
+    "services": "Youth development, school and after-school programs, behavioral health referrals, and employment support.",
+    "eligibility": "Program-specific ages and enrollment rules. Ask which program fits your age and needs.",
+    "steps": "For general navigation, call the Post Street office or email hello@cycsf.org. Health and wellness intake: 415-775-2636, Mon–Fri 9am–5pm.",
+    "hours": "Offices offer community drop-in help during business hours; exact Post Street hours and program schedules need confirmation.",
+    "address": "1038 Post Street, San Francisco, CA",
+    "phone": "415-775-2641",
+    "email": "hello@cycsf.org",
+    "cost": "Ask about the specific program; fees are not confirmed here.",
+    "access": "Culturally and linguistically responsive services are described. Ask about languages and physical access for your program.",
+    "note": "This pin is the Post Street office for navigation. Programs run at different offices and schools; confirm where to go.",
+    "sources": [
+      [
+        "CYC contact and offices",
+        "https://www.cycsf.org/contact/"
+      ],
+      [
+        "CYC programs",
+        "https://www.cycsf.org/theory-of-change/"
+      ],
+      [
+        "Health and wellness intake",
+        "https://www.cycsf.org/theory-of-change/health-and-wellness/"
+      ]
+    ],
+    "map": true,
+    "coordinates": [
+      37.787011105557,
+      -122.418941051732
+    ],
+    "matchedAddress": "1038 POST ST, SAN FRANCISCO, CA, 94109",
+    "geocodeSource": "US Census address geocoder",
+    "checked": "2026-11-24",
+    "verification": "Official website checked; not directly confirmed",
+    "shortName": "CYC"
+  },
+  {
+    "id": "cyc-yawl",
+    "name": "CYC: Young Adult Worklink",
+    "area": "Citywide / program locations",
+    "categories": [
+      "Work & learning"
+    ],
+    "minAge": 16,
+    "maxAge": 24,
+    "ageLabel": "16–24",
+    "summary": "Job-readiness workshops and individual career support for young adults.",
+    "services": "Resume and cover-letter help, interview practice, job searching, professional communication, and one-to-one career services.",
+    "eligibility": "Ages 16–24. Ask about current cohort enrollment and any additional requirements.",
+    "steps": "Email yawl@cycsf.org or use the registration link on the official program page. Confirm where the next cohort meets.",
+    "hours": "Cohort-based; ask for the next intake and workshop schedule.",
+    "address": "Confirm the current program location with the YAWL team",
+    "phone": null,
+    "email": "yawl@cycsf.org",
+    "cost": "Ask the team; the program page does not specify fees.",
+    "access": "Ask about language support, remote participation, and accommodations.",
+    "note": "The program page lists several CYC offices but does not identify a current cohort venue. No walk-in location is assumed.",
+    "sources": [
+      [
+        "CYC Young Adult Worklink",
+        "https://www.cycsf.org/program/yawl/"
+      ]
+    ],
+    "map": false,
+    "checked": "2026-11-24",
+    "verification": "Official website checked; not directly confirmed",
+    "shortName": "CYC"
+  },
+  {
+    "id": "spca-hospital",
+    "name": "SF SPCA: Mission Veterinary Hospital",
+    "area": "Mission / Potrero",
+    "categories": [
+      "Pets"
+    ],
+    "minAge": null,
+    "maxAge": null,
+    "ageLabel": "Pet guardians; appointment needed",
+    "summary": "Veterinary care at the Mission campus near HYPE Center.",
+    "services": "Pet exams, vaccinations, testing, dental treatment, illness and injury care, and urgent-care appointments.",
+    "eligibility": "Pet guardians. Call to ask about appointments, pet needs, and financial assistance eligibility.",
+    "steps": "Book online or call/text 415-554-3030. Ask for an estimate and any assistance options before booking.",
+    "hours": "Mon–Sat 8am–6pm, by appointment. Holiday hours may differ.",
+    "address": "201 Alabama Street, San Francisco, CA",
+    "phone": "415-554-3030",
+    "email": "hospital@sfspca.org",
+    "cost": "Paid veterinary care. Ask about financial assistance; approval and current eligibility have not been confirmed.",
+    "access": "Spanish and Chinese are advertised. Confirm interpretation and physical-access needs when booking.",
+    "note": "This is the hospital near HYPE, separate from the Community Veterinary Clinic at 4527 Mission Street. It is not listed as a free walk-in clinic or a 24-hour emergency hospital.",
+    "sources": [
+      [
+        "SF SPCA hospital",
+        "https://www.sfspca.org/veterinary-care/hospital/"
+      ],
+      [
+        "Hours and locations",
+        "https://www.sfspca.org/about/hours-locations/"
+      ],
+      [
+        "Hospital contact",
+        "https://www.sfspca.org/about/contact-us/"
+      ]
+    ],
+    "map": true,
+    "coordinates": [
+      37.766831427002,
+      -122.412471174528
+    ],
+    "matchedAddress": "201 ALABAMA ST, SAN FRANCISCO, CA, 94103",
+    "geocodeSource": "US Census address geocoder",
+    "checked": "2026-11-24",
+    "verification": "Official website checked; not directly confirmed",
+    "shortName": "SPCA"
   }
 ]

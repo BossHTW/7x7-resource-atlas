@@ -16,11 +16,11 @@ Run `python3 -m http.server 8000` in this directory and open `http://localhost:8
 
 ## Corrections and nominations
 
-Forms prepare a `mailto:` draft to `7x7storiessf@gmail.com`, or copy the email text. Visitors must send from their own mail app. No submission is stored by the website, and no feedback is posted automatically.
+Recommendations, corrections, provider verification requests, and story nominations prepare a `mailto:` draft to `7x7storiessf@gmail.com`, or copy the email text. Visitors must send from their own mail app. No submission is stored by the website, and no feedback is posted automatically.
 
 Team workflow: review incoming corrections; confirm the relevant field with the provider or a current official source; update the record and research date; describe material changes in the commit. If a report remains unresolved, flag the specific uncertainty rather than publishing a claim about an individual or replacing policy with an anecdote. Do not copy personal email content into the repository.
 
-The map is optional. Leaflet is hosted locally; OpenStreetMap tiles load only when the map is opened. No geolocation or advertising analytics are used. GitHub Pages and tile providers still receive ordinary connection data.
+The map is the default view. A secondary List view includes all mapped and unmapped resources. Leaflet and provider logos are hosted locally; OpenStreetMap tiles load when the directory opens. No geolocation or advertising analytics are used. Logos identify providers; they do not imply partnership or endorsement. If a logo cannot be retrieved, a named initial badge is used. GitHub Pages and tile providers still receive ordinary connection data.
 
 ## Publishing
 
@@ -30,6 +30,10 @@ GitHub Pages: deploy from `main`, root directory. All links and assets are relat
 
 `node --check app.js`; inspect `data/resources.json` for valid unique records and sourced locations. Manually verify filters, keyboard use, mobile layout, dialogs, copy/email behavior, map/list parity, and failure states. Test changes before publishing.
 
+Provider verification: confirm the sender’s affiliation through an official provider address or independently sourced contact. Review fields individually before changing the public record. A submitted request alone does not verify a listing. Record any future confirmation date and scope explicitly; current listings remain website-researched.
+
 ## Assets
 
 Brand mark reused from Boss's existing 7x7 Stories site. Leaflet 1.9.4 is distributed under its included BSD-2-Clause license. Map attribution must remain visible.
+
+Provider logo source URLs are recorded in `assets/providers/sources.json` and each relevant resource record. Logos remain the property of their organizations. Keep all form submissions and verification correspondence out of the public repository.
